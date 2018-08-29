@@ -17,11 +17,11 @@ public class Demo {
 		
 		driver.get("http://www.google.com");
 		System.out.println(driver.getTitle());
+		
+		
+		
+		
 		//driver.close();
-		
-	
-		
-		
 		quitmethod(driver);
 	}
 
