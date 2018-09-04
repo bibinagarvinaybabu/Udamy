@@ -21,6 +21,8 @@ public class FacebookLogin {
 		System.out.println(driver.getCurrentUrl());
 		driver.get("http://facebook.com");
 		driver.findElement(By.id("email")).sendKeys("vinay210292@gmail.com");
+		driver.findElement(By.id("pass")).sendKeys("iloveyouvinay");
+		
 		
 		
 		
