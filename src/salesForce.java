@@ -1,7 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 
 
 public class salesForce {
@@ -14,14 +14,14 @@ public class salesForce {
 		driver.manage().window().maximize();
 		
 		driver.get("https://login.salesforce.com/");
-		driver.findElement(By.id("username")).sendKeys("Hello");
-		driver.findElement(By.name("pw")).sendKeys("12345");
+		driver.findElement(By.xpath("//input[@id = 'username']")).sendKeys("Hello");
+		driver.findElement(By.xpath("//input[@id = 'password']")).sendKeys("12345");
 		try {
-			driver.findElement(By.cssSelector("input[id='Login']")).click();
+			driver.findElement(By.xpath("//input[@id='Login']")).click();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println(driver.findElement(By.cssSelector("div[id='error'][class='loginError']")).getText());
+		System.out.println(driver.findElement(By.xpath("//div[@id='error'][@class='loginError']")).getText());
 		
 		
 		
