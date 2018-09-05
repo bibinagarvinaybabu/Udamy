@@ -1,10 +1,13 @@
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.server.handler.SendKeys;
 
 
 
-public class salesForce {
+public class RediffMail {
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -13,15 +16,8 @@ public class salesForce {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
-		driver.get("https://login.salesforce.com/");
-		driver.findElement(By.xpath("//input[@id = 'username']")).sendKeys("Hello");
-		driver.findElement(By.xpath("//input[@id = 'password']")).sendKeys("12345");
-		try {
-			driver.findElement(By.xpath("//input[@id='Login']")).click();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		System.out.println(driver.findElement(By.xpath("//div[@id='error'][@class='loginError']")).getText());
+		driver.get("http://www.rediff.com/");
+		
 		//regular expressions in xpath
 		/*//tagName[contains(@attribute,'attribute value')]
 		 * 
@@ -33,9 +29,13 @@ public class salesForce {
 		 * 
 		 * 
 		 */
-		
-		
-		
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//a[@title = 'Already a user? Sign in']")).click();
+		driver.findElement(By.cssSelector("#login1")).sendKeys("vinay test");
+		driver.findElement(By.xpath("//*[contains(@id,'passwo')]")).sendKeys("12345");
+		driver.findElement(By.cssSelector("#remember[type = 'checkbox']")).click();
+		driver.findElement(By.xpath("//input[@title = 'Sign in']")).click();
+		System.out.println(driver.getTitle());
 		
 		//driver.close();
 		quitmethod(driver);
